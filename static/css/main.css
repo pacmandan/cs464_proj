@@ -36,3 +36,19 @@ h1, h2
     text-align: center;
     margin: 0px 0px 10px 0px;
 } 
+
+.bg-row {
+    width: 100%;
+}
+
+.bg-row .primary-name {
+    float: left;
+}
+
+.bg-row .ratings {
+    float: right;
+}
+
+.clear {
+    float: clear;
+}

@@ -1,0 +1,38 @@
+@import url(http://fonts.googleapis.com/css?family=Vollkorn|Roboto+Slab);
+body
+{ 
+    font-family: 'Roboto Slab', serif;
+    background: #000000 url(debut_light.png) repeat;
+    color: #333;
+    margin: 0px 10% 0px 10%;
+    padding: 6px;
+}
+a:link, a:visited, a:hover, a:active
+{
+    text-decoration:none;
+}
+a:link
+{
+    color: #0000FF;
+}
+a:visited
+{
+    color: #9900FF;
+}
+h1
+{
+    font-size: 40px;
+    text-align: center;
+    margin-top: 10px;
+}
+h1, h2
+{ 
+    font-family: 'Vollkorn', sans-serif;
+}	
+#note
+{
+    font-size: 14px;
+    color: #646464;
+    text-align: center;
+    margin: 0px 0px 10px 0px;
+} 

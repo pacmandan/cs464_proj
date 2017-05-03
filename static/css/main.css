@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Vollkorn|Roboto+Slab);
+@import url(http://fonts.googleapis.com/css?family=Vollkorn|Roboto+Slab|Oxygen);
 body
 { 
     font-family: 'Roboto Slab', serif;
@@ -24,11 +24,12 @@ h1
     font-size: 40px;
     text-align: center;
     margin-top: 10px;
-}
-h1, h2
-{ 
     font-family: 'Vollkorn', sans-serif;
-}	
+}
+h2
+{
+    font-family: 'Oxygen', sans-serif;
+}
 #note
 {
     font-size: 14px;

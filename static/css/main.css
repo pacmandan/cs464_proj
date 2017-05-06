@@ -42,6 +42,7 @@ h2
 
 .bg-results-table {
     border-collapse: collapse;
+    width: 100%;
 }
 
 .bg-row {
@@ -51,6 +52,7 @@ h2
 
 .bg-row:hover {
     background-color: rgba(235, 235, 235, 0.8);
+    cursor: pointer;
 }
 
 .bg-row .primary-name {

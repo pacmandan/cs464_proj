@@ -30,7 +30,9 @@ LEFT JOIN (SELECT baseID AS gameID, GROUP_CONCAT(DISTINCT CONCAT(exp.primaryName
 
 LEFT JOIN (SELECT expansionID AS gameID, GROUP_CONCAT(DISTINCT CONCAT(base.primaryName,',',baseID) SEPARATOR ';') AS bases FROM BoardgameExpansion be JOIN Boardgame base ON base.id=be.baseID WHERE expansionID=$id) AS base ON b.id=base.gameID
 
-LEFT JOIN (SELECT b.id AS gameID, GROUP_CONCAT(DISTINCT CONCAT(b.primaryName,',',originalID,',',implementationID) SEPARATOR ';') AS implementations FROM BoardgameImplementation bi JOIN Boardgame b ON (b.id=bi.originalID OR b.id=bi.implementationID) WHERE b.id=$id) AS impl ON b.id=impl.gameID
+LEFT JOIN (SELECT implementationID as gameID, GROUP_CONCAT(DISTINCT CONCAT(original.primaryName,',',originalID) SEPARATOR ';') AS originals FROM BoardgameImplementation bi JOIN Boardgame original ON original.id=bi.originalID WHERE implementationID=$id) AS orig ON b.id=orig.gameID
+
+LEFT JOIN (SELECT originalID as gameID, GROUP_CONCAT(DISTINCT CONCAT(impl.primaryName,',',implementationID) SEPARATOR ';') AS implementations FROM BoardgameImplementation bi JOIN Boardgame impl ON impl.id=bi.implementationID WHERE originalID=$id) AS impl ON b.id=impl.gameID
 
 LEFT JOIN (SELECT gameID, GROUP_CONCAT(DISTINCT CONCAT(id,',',name) SEPARATOR ';') AS publishers FROM BoardgamePublisher bp JOIN Publisher p ON p.id=bp.publisherID WHERE bp.gameID=$id) AS pub ON b.id=pub.gameID
 
@@ -66,6 +68,7 @@ EOQ;
     $description = $game['description'];
     $bases = $game['bases'];
     $expansions = $game['expansions'];
+    $originals = $game['originals'];
     $implementations = $game['implementations'];
     if($game['numWeighted'] == 0) { $weight = '-'; }
     else { $weight = round($game['avgWeight'], 2); }
@@ -137,32 +140,6 @@ EOQ;
     <div class="description">
       <p><?=$description?></p>
     </div>
-    <div class="other-games">
-      <?php
-      print_r($expansions);
-      print_r($bases);
-      print('<br/>');
-      foreach(explode(';', $expansions) as $expansion) {
-	$exp = explode(',', $expansion);
-	print_r($exp);
-	print('<br/>');
-      }
-      print('<br/>');
-      foreach(explode(';', $bases) as $base) {
-	$b = explode(',',$base);
-	print_r($b);
-	print('<br/>');
-      }
-      ?>
-      <div class="base">
-      </div>
-      <div class="expansions">
-      </div>
-      <div class="implementation-of">
-      </div>
-      <div class="implemented-by">
-      </div>
-    </div>
     <div class="people">
       <div class="publishers">
 	<h3>Publishers</h3>
@@ -190,7 +167,43 @@ EOQ;
 	  print("<a href='/designer?id=$a[0]'>$a[1]</a>");
 	}
 	?>
-      </div>      
+      </div>
+    </div>
+    <div class="other-games">
+      <?php
+      if(count($expansions) > 0) {
+	print('<div class="expansions"><h3>Expansions</h3>');
+	foreach(explode(';', $expansions) as $expansion) {
+	  $exp = explode(',', $expansion);
+	  print("<a href='/boardgame?id=$exp[1]'>$exp[0]</a>");
+	}
+	print('</div>');
+      }
+      if(count($bases) > 0) {
+	print('<div class="bases"><h3>Base Game</h3>');
+	foreach(explode(';', $bases) as $base) {
+	  $b = explode(',',$base);
+	  print("<a href='/boardgame?id=$b[1]'>$b[0]</a>");
+	}
+	print('</div>');
+      }
+      if(count($implementations) > 0) {
+	print('<div class="implementations"><h3>Implementations</h3>');
+	foreach(explode(';', $implementations) as $implementation) {
+	  $i = explode(',',$implementation);
+	  print("<a href='/boardgame?id=$i[1]'>$i[0]</a>");
+	}
+	print('</div>');
+      }
+      if(count($originals) > 0) {
+	print('<div class="originals"><h3>Originals</h3>');
+	foreach(explode(';', $originals) as $orig) {
+	  $o = explode(',',$orig);
+	  print("<a href='/boardgame?id=$o[1]'>$o[0]</a>");
+	}
+	print('</div>');
+      }
+      ?>
     </div>
   </div>
   

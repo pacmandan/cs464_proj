@@ -21,5 +21,4 @@
 
   </head>
   <body>
-
-  <h1>cs464/564 - <?php echo $title; ?></h1>
+  <?php if(isset($title)) { echo "<h1>cs464 - $title</h1"; } ?>

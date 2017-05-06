@@ -1,2 +1,5 @@
 #Ignore the db connection - github is public, soooo...
 db.php
+
+#Ignore eslint config
+.eslintrc

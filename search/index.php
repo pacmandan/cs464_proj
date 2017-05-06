@@ -13,7 +13,7 @@ EOQ;
 	$r = $db->query($sql);
 	print(mysqli_num_rows($r).' Results');
 	if(mysqli_num_rows($r) > 0) {
-		print('<table>');
+		print('<table class="bg-results-table">');
 		while($row = $r->fetch_assoc()) {
 			render_bg_row($row);
 		}

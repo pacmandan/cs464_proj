@@ -28,6 +28,8 @@ h1
 }
 h2
 {
+    margin-top: 0px;
+    margin-bottom: 3px;
     font-family: 'Oxygen', sans-serif;
 }
 #note
@@ -36,10 +38,19 @@ h2
     color: #646464;
     text-align: center;
     margin: 0px 0px 10px 0px;
-} 
+}
+
+.bg-results-table {
+    border-collapse: collapse;
+}
 
 .bg-row {
     width: 100%;
+    border: none;
+}
+
+.bg-row:hover {
+    background-color: rgba(235, 235, 235, 0.8);
 }
 
 .bg-row .primary-name {
@@ -51,5 +62,52 @@ h2
 }
 
 .clear {
-    float: clear;
+    float: none;
+}
+
+.bg-row .stats {
+    padding-left: 10px;
+    float: left;
+    width: 100%;
+}
+
+.bg-row .stats span {
+    padding-right: 30px;
+}
+
+.bg-thumbnail {
+    float: left;
+}
+
+.bg-detail h1 {
+    margin-bottom: 0px;
+}
+
+.bg-detail .game-stats {
+    text-align: center;
+}
+
+.bg-detail .game-stats span {
+    padding-right: 30px;
+}
+
+.bg-detail .user-stats {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.bg-detail .user-stats span {
+    padding-right: 30px;
+}
+
+.bg-detail .collections h3, .bg-detail .people h3, .bg-detail .other-games h3 {
+    margin-bottom: 5px;
+}
+
+.bg-detail .collections a, .bg-detail .people a, .bg-detail .other-games a {
+    line-height: 40px;
+    padding: 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+    background-color: rgba(235, 235, 250, 1);
 }

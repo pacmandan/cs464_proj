@@ -2,6 +2,7 @@
 function render_bg_row($data) {
   $id=$data['id'];
   $name=$data['primaryName'];
+  $yearPublished = $data['yearPublished'];
   $thumbnail = $data['thumbnail'];
   $minPlayers = $data['minPlayers'];
   $maxPlayers = $data['maxPlayers'];
@@ -15,7 +16,7 @@ function render_bg_row($data) {
 <tr class="bg-row">
   <td class="thumbnail"><a href="/boardgame?id=<?=$id?>"><img src='<?=$thumbnail?>'/></a></td>
   <td><a href="/boardgame?id=<?=$id?>">
-    <div class="primary-name"><h2><?=$name?></h2></div>
+    <div class="primary-name"><h2><?=$name?> (<?=$yearPublished?>)</h2></div>
     <div class="ratings">
       <span title='Rating'><i class='fa fa-star' aria-hidden='true'></i> <?=$rating?> / 10</span><br/>
       <span title='Complexity'><i class='fa fa-puzzle-piece' aria-hidden='true'></i> <?=$weight?> / 5</span></div>

@@ -10,9 +10,7 @@ while($row = $r->fetch_row()) {
     print($row[0].' Boardgames!<br/>');
 }
 ?>
-<form action='/search'>
-  <h3>Search for games</h3>
-  <input type='text' name='name' />
-  <input type='submit' value='Search'/>
-</form>
+<?php include_once('search/form.php');
+renderForm($db);
+?>
 <?php include_once('footer.php'); ?>

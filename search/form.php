@@ -3,8 +3,15 @@ $searchFields = array(
   'name', 'playerMin', 'playerMax', 'ageMin', 'ageMax', 'timeMin', 'timeMax',
     'mechanics', 'categories', 'subdomains', 'families',
     'publisher', 'designer', 'artist',
-    'ratingMin', 'complexityMin', 'complexityMax',
-    'sortBy', 'dir'
+    'ratingMin', 'complexityMin', 'complexityMax'
+);
+$condFields = array(
+  'name', 'playerMin', 'playerMax', 'ageMin', 'ageMax', 'timeMin', 'timeMax',
+    'ratingMin', 'complexityMin', 'complexityMax'
+);
+$joinFields = array(
+    'mechanics', 'categories', 'subdomains', 'families',
+    'publisher', 'designer', 'artist'
 );
 function renderForm(& $db, $default) {
   $mechSQL = <<<EOQ
@@ -107,16 +114,20 @@ EOQ;
       <label>Complexity: </label><input type="text" class="num-input" value="<?=$default['complexityMin']?>" name="complexityMin"/> - <input type="text" class="num-input" value="<?=$default['complexityMax']?>" name="complexityMax"/>
     </div>
     <div class="sort-by">
+      <?php
+      $sortBy = $default['sortBy'];
+      $dir = $default['dir'];
+      ?>
       <label>Sort By</label>
       <select name="sortBy">
-	<option value="name">Name</option>
-	<option value="owned"># Own</option>
-	<option value="weight">Complexity</option>
-	<option value="rating">Rating</option>
+	<option value="name" <?=$sortBy=='name' ? 'selected' : ''?>>Name</option>
+	<option value="owned" <?=$sortBy=='owned' ? 'selected' : ''?>># Own</option>
+	<option value="weight" <?=$sortBy=='weight' ? 'selected' : ''?>>Complexity</option>
+	<option value="rating" <?=$sortBy=='rating' ? 'selected' : ''?>>Rating</option>
       </select>
       <select name="dir">
-	<option value="ASC">Ascending</option>
-	<option value="DESC">Descending</option>
+	<option value="ASC" <?=$dir=='ASC' ? 'selected' : ''?>>Ascending</option>
+	<option value="DESC" <?=$dir=='DESC' ? 'selected' : ''?>>Descending</option>
       </select>
     </div>
     <input type="submit" value="Search"/>

@@ -1,5 +1,5 @@
 <?php
-function render_checkbox_list($title, $items, $defaults) {
+function render_checkbox_list($title, $groupName, $items, $defaults) {
 ?>
   <div>
     <label><?=$title?></label>
@@ -10,7 +10,7 @@ function render_checkbox_list($title, $items, $defaults) {
 	  $name = $item['name'];
 	  $id = $item['id'];
 	  $checked = in_array($id, $defaults) ? 'checked' : '';
-	  print("<li><label><input type='checkbox' name='mechanics[]' value='$id' $checked/>$name</label></li>");
+	  print("<li><label><input type='checkbox' name='$groupName[]' value='$id' $checked/>$name</label></li>");
 	}
 	?>
       </ul>

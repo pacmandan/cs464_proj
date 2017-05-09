@@ -32,13 +32,13 @@ function renderForm($db, $defaults, $type) {
     Year Published: <input type="text" name="yearPublished" value="<?=$defaults['yearPublished']?>"/><br/>
     
     <?php
-    render_checkbox_list("Mechanics", $mechs, isset($defaults['mechanics']) ? $defaults['mechanics'] : array());
-    render_checkbox_list("Types", $subdomains, isset($defaults['subdomains']) ? $defaults['subdomains'] : array());
-    render_checkbox_list("Categories", $categories, isset($defaults['categories']) ? $defaults['categories'] : array());
-    render_checkbox_list("Families", $families, isset($defaults['families']) ? $defaults['families'] : array());
-    render_checkbox_list("Publishers", $publishers, isset($defaults['publishers']) ? $defaults['publishers'] : array());
-    render_checkbox_list("Artists", $artists, isset($defaults['artists']) ? $defaults['artists'] : array());
-    render_checkbox_list("Designers", $designers, isset($defaults['designers']) ? $defaults['designers'] : array());
+    render_checkbox_list("Mechanics", "mechanics", $mechs, isset($defaults['mechanics']) ? $defaults['mechanics'] : array());
+    render_checkbox_list("Types", "subdomains", $subdomains, isset($defaults['subdomains']) ? $defaults['subdomains'] : array());
+    render_checkbox_list("Categories", "categories", $categories, isset($defaults['categories']) ? $defaults['categories'] : array());
+    render_checkbox_list("Families", "families", $families, isset($defaults['families']) ? $defaults['families'] : array());
+    render_checkbox_list("Publishers", "publishers", $publishers, isset($defaults['publishers']) ? $defaults['publishers'] : array());
+    render_checkbox_list("Artists", "artists", $artists, isset($defaults['artists']) ? $defaults['artists'] : array());
+    render_checkbox_list("Designers", "designers", $designers, isset($defaults['designers']) ? $defaults['designers'] : array());
     ?>
     <input type="submit" value="Add Game"/>
   </form>

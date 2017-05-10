@@ -13,4 +13,8 @@ while($row = $r->fetch_row()) {
 <?php include_once('search/form.php');
 renderForm($db);
 ?>
+
+<p/>
+<h3><a href="/mechanic">Or: Browse Boardgame Mechanics</a></h3>
+
 <?php include_once('footer.php'); ?>

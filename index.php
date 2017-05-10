@@ -15,6 +15,6 @@ renderForm($db);
 ?>
 
 <p/>
-<h3><a href="/mechanic">Or: Browse Boardgame Mechanics</a></h3>
+<h3><a href="/mechanics">Or: Browse Boardgame Mechanics</a></h3>
 
 <?php include_once('footer.php'); ?>

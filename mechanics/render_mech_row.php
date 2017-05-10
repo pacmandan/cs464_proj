@@ -22,7 +22,7 @@ function render_mech_row($data, $db) {
   }
 
 ?>
-<tr class="mech-row">
+<tr class="mech-row" id="<?=$id?>">
   <td><a href="/mechanic?id=<?=$id?>">
     <div class="name"><h2><?=$name?></h2></div>
   </div></a><br/>

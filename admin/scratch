@@ -1,0 +1,24 @@
+SELECT * FROM
+(SELECT * FROM Boardgame WHERE id=146021) AS b
+
+LEFT JOIN (SELECT gameID, GROUP_CONCAT(mechanicID SEPARATOR ',') AS mechanics FROM BoardgameMechanic bm WHERE bm.gameID=146021) AS mech ON b.id=mech.gameID
+
+LEFT JOIN (SELECT gameID, GROUP_CONCAT(categoryID SEPARATOR ',') AS categories FROM BoardgameCategory bc WHERE bc.gameID=146021) AS cat ON b.id=cat.gameID
+
+LEFT JOIN (SELECT gameID, GROUP_CONCAT(familyID SEPARATOR ',') AS families FROM BoardgameFamily bf WHERE bf.gameID=146021) AS fam ON b.id=fam.gameID
+
+LEFT JOIN (SELECT gameID, GROUP_CONCAT(subdomainID SEPARATOR ',') AS subdomains FROM BoardgameSubdomain bs WHERE bs.gameID=146021) AS sub ON b.id=sub.gameID
+
+LEFT JOIN (SELECT gameID, GROUP_CONCAT(personID SEPARATOR ',') AS designers FROM BoardgameDesigner bd WHERE bd.gameID=146021) AS des ON b.id=des.gameID
+
+LEFT JOIN (SELECT gameID, GROUP_CONCAT(personID SEPARATOR ',') AS artists FROM BoardgameArtist ba WHERE ba.gameID=146021) AS art ON b.id=art.gameID
+
+LEFT JOIN (SELECT baseID AS gameID, GROUP_CONCAT(expansionID SEPARATOR ',') AS expansions FROM BoardgameExpansion WHERE baseID=146021) AS exp ON b.id=exp.gameID
+
+LEFT JOIN (SELECT expansionID AS gameID, GROUP_CONCAT(baseID SEPARATOR ',') AS bases FROM BoardgameExpansion WHERE expansionID=146021) AS base ON b.id=base.gameID
+
+LEFT JOIN (SELECT implementationID as gameID, GROUP_CONCAT(originalID SEPARATOR ',') AS originals FROM BoardgameImplementation WHERE implementationID=146021) AS orig ON b.id=orig.gameID
+
+LEFT JOIN (SELECT originalID as gameID, GROUP_CONCAT(implementationID SEPARATOR ',') AS implementations FROM BoardgameImplementation WHERE originalID=146021) AS impl ON b.id=impl.gameID
+
+LEFT JOIN (SELECT gameID, GROUP_CONCAT(publisherID SEPARATOR ',') AS publishers FROM BoardgamePublisher bp WHERE bp.gameID=146021) AS pub ON b.id=pub.gameID;

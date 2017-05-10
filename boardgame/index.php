@@ -105,7 +105,7 @@ EOQ;
 	<?php
 	foreach (explode(';', $subdomains) as $subdomain) {
 	  $s = explode(',', $subdomain);
-	  print("<a href='/family?id=$s[0]'>$s[1]</a>");
+	  print("<span href='/family?id=$s[0]'>$s[1]</span>");
 	}
 	?>
       </div>
@@ -114,7 +114,7 @@ EOQ;
 	<?php
 	foreach (explode(';', $mechanics) as $mechanic) {
 	  $m = explode(',', $mechanic);
-	  print("<a href='/mechanics?id=$m[0]'>$m[1]</a>");
+	  print("<a href='/mechanics#$m[0]'>$m[1]</a>");
 	}
 	?>
       </div>
@@ -123,7 +123,7 @@ EOQ;
 	<?php
 	foreach (explode(';', $families) as $family) {
 	  $f = explode(',', $family);
-	  print("<a href='/family?id=$f[0]'>$f[1]</a>");
+	  print("<span href='/family?id=$f[0]'>$f[1]</span>");
 	}
 	?>
       </div>
@@ -132,7 +132,7 @@ EOQ;
 	<?php
 	foreach (explode(';', $categories) as $category) {
 	  $c = explode(',', $category);
-	  print("<a href='/category?id=$c[0]'>$c[1]</a>");
+	  print("<span href='/category?id=$c[0]'>$c[1]</span>");
 	}
 	?>
       </div>
@@ -146,7 +146,7 @@ EOQ;
 	<?php
 	foreach (explode(';', $publishers) as $publisher) {
 	  $p = explode(',', $publisher);
-	  print("<a href='/publisher?id=$p[0]'>$p[1]</a>");
+	  print("<span href='/publisher?id=$p[0]'>$p[1]</span>");
 	}
 	?>
       </div>
@@ -155,7 +155,7 @@ EOQ;
 	<?php
 	foreach (explode(';', $designers) as $designer) {
 	  $d = explode(',', $designer);
-	  print("<a href='/designer?id=$d[0]'>$d[1]</a>");
+	  print("<span href='/designer?id=$d[0]'>$d[1]</span>");
 	}
 	?>
       </div>
@@ -164,7 +164,7 @@ EOQ;
 	<?php
 	foreach (explode(';', $artists) as $artist) {
 	  $a = explode(',', $artist);
-	  print("<a href='/designer?id=$a[0]'>$a[1]</a>");
+	  print("<span href='/designer?id=$a[0]'>$a[1]</span>");
 	}
 	?>
       </div>

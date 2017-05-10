@@ -2,25 +2,25 @@
 function renderForm($db, $defaults, $type) {
   require('../search/render_checkbox_list.php');
 
-  $mechSQL = "SELECT * FROM Mechanic ORDER BY name ASC;";
-  $subdomainSQL = "SELECT * FROM Subdomain ORDER BY name ASC;";
-  $categorySQL = "SELECT * FROM Category ORDER BY name ASC;";
-  $familySQL = "SELECT * FROM Family ORDER BY name ASC;";
-  $publisherSQL = "SELECT * FROM Publisher ORDER BY name ASC;";
-  $personSQL = "SELECT * FROM Person ORDER BY name ASC;";
+  //$mechSQL = "SELECT * FROM Mechanic ORDER BY name ASC;";
+  //$subdomainSQL = "SELECT * FROM Subdomain ORDER BY name ASC;";
+  //$categorySQL = "SELECT * FROM Category ORDER BY name ASC;";
+  //$familySQL = "SELECT * FROM Family ORDER BY name ASC;";
+  //$publisherSQL = "SELECT * FROM Publisher ORDER BY name ASC;";
+  //$personSQL = "SELECT * FROM Person ORDER BY name ASC;";
   
-  $mechs = $db->query($mechSQL);
-  $subdomains = $db->query($subdomainSQL);
-  $categories = $db->query($categorySQL);
-  $families = $db->query($familySQL);
-  $publishers = $db->query($publisherSQL);
-  $artists = $db->query($personSQL);
-  $designers = $db->query($personSQL);
+  //$mechs = $db->query($mechSQL);
+  //$subdomains = $db->query($subdomainSQL);
+  //$categories = $db->query($categorySQL);
+  //$families = $db->query($familySQL);
+  //$publishers = $db->query($publisherSQL);
+  //$artists = $db->query($personSQL);
+  //$designers = $db->query($personSQL);
 
   $link = $type == 'Add' ? '/admin/add-game.php' : '/admin/edit-game.php';
 ?>
   <h2><?=$type?> Boardgame</h2>
-  <form action="<?=$link?>" method="post">
+  <form id="search-form" action="<?=$link?>" method="post">
     <?php
     if(isset($defaults['id']) && $type!='Add') {
       $id = $defaults['id'];
@@ -36,26 +36,31 @@ function renderForm($db, $defaults, $type) {
     <input class="num-input" type="text" name="maxPlaytime" value="<?=$defaults['maxPlaytime']?>"/><br/>
     Year Published: <input type="text" name="yearPublished" value="<?=$defaults['yearPublished']?>"/><br/>
     Description:<br/><textarea name="description"><?=$defaults['description']?></textarea><br/>
-    <?php
-    if($type == 'Add') {
-      render_checkbox_list("Mechanics", "mechanics[]", $mechs,
-	isset($defaults['mechanics']) ? $defaults['mechanics'] : array());
-      render_checkbox_list("Types", "subdomains[]", $subdomains,
-	isset($defaults['subdomains']) ? $defaults['subdomains'] : array());
-      render_checkbox_list("Categories", "categories[]", $categories,
-	isset($defaults['categories']) ? $defaults['categories'] : array());
-      render_checkbox_list("Families", "families[]", $families,
-	isset($defaults['families']) ? $defaults['families'] : array());
-      render_checkbox_list("Publishers", "publishers[]", $publishers,
-	isset($defaults['publishers']) ? $defaults['publishers'] : array());
-      render_checkbox_list("Artists", "artists[]", $artists,
-	isset($defaults['artists']) ? $defaults['artists'] : array());
-      render_checkbox_list("Designers", "designers[]", $designers,
-	isset($defaults['designers']) ? $defaults['designers'] : array());
-    }
-    ?>
+    Mechanics: <input type="text" name="mechanics" value="<?=$defaults['mechanics']?>"/><br/>
+    Types: <input type="text" name="subdomains" value="<?=$defaults['subdomains']?>"/><br/>
+    Categories: <input type="text" name="categories" value="<?=$defaults['categories']?>"/><br/>
+    Families: <input type="text" name="families" value="<?=$defaults['families']?>"/><br/>
+    Publishers: <input type="text" name="publishers" value="<?=$defaults['publishers']?>"/><br/>
+    Artists: <input type="text" name="artists" value="<?=$defaults['artists']?>"/><br/>
+    Designers: <input type="text" name="designers" value="<?=$defaults['designers']?>"/><br/>
+    Expansions: <input type="text" name="expansions" value="<?=$defaults['expansions']?>"/><br/>
+    Bases: <input type="text" name="bases" value="<?=$defaults['bases']?>"/><br/>
+    Implementations: <input type="text" name="implementations" value="<?=$defaults['implementations']?>"/><br/>
+    Originals: <input type="text" name="originals" value="<?=$defaults['originals']?>"/><br/>
     <input type="submit" value="<?=$type?> Game"/>
   </form>
+  <script language="javascript">
+  //Prevent the form from submitting empty fields
+  $('#search-form').submit(function () {
+    $(this)
+      .find('input[name]')
+      .filter(function () {
+        return !this.value;
+      })
+      .prop('name', '');
+  });
+  </script>
+
 <?php
 }
 ?>

@@ -12,7 +12,7 @@ require('game-form.php');
   <input type="submit" value="Find and Edit"/>
 </form>
 <h2>Delete Game</h2>
-<form action="/admin/delete-game.php">
+<form action="/admin/delete-game.php" method="post">
   <label>ID:</label><input type="text" name="id"/>
   <input type="submit" value="Delete"/>
 </form>

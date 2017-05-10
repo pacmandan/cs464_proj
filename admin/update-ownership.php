@@ -22,4 +22,5 @@ if($db->error) {
   print('Games updated successfully!');
 }
 
+include_once('../footer.php');
 ?>

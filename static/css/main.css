@@ -106,7 +106,7 @@ h2
     margin-bottom: 5px;
 }
 
-.bg-detail .collections a, .bg-detail .people a, .bg-detail .other-games a {
+.bg-detail .collections span, .bg-detail .collections a, .bg-detail .people span, .bg-detail .other-games a {
     line-height: 40px;
     padding: 5px;
     margin-right: 5px;

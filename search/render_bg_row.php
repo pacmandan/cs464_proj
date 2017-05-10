@@ -14,7 +14,7 @@ function render_bg_row($data) {
   else { $rating = round($data['avgRating'], 2); }
 ?>
 <tr class="bg-row">
-  <td class="thumbnail"><a href="/boardgame?id=<?=$id?>"><img src='<?=$thumbnail?>'/></a></td>
+  <td class="thumbnail"><a href="/~ss013r/boardgame?id=<?=$id?>"><img src='<?=$thumbnail?>'/></a></td>
   <td><a href="/boardgame?id=<?=$id?>">
     <div class="primary-name"><h2><?=$name?> (<?=$yearPublished?>)</h2></div>
     <div class="ratings">

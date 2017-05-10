@@ -31,7 +31,7 @@ EOQ;
   $categories = $db->query($categorySQL);
   $families = $db->query($familySQL);
 ?>
-  <form id="search-form" class="search-form" action="/search">
+  <form id="search-form" class="search-form" action="/~ss013r/search">
     <h3>Search for board games</h3>
     Name:<input type="text" name="name" value="<?=$default['name']?>"/><br/>
     <div>

@@ -9,7 +9,7 @@
     
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/~ss013r/static/css/main.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script
 	    src="https://code.jquery.com/jquery-3.2.1.min.js"

@@ -17,7 +17,7 @@ function renderForm($db, $defaults, $type) {
   //$artists = $db->query($personSQL);
   //$designers = $db->query($personSQL);
 
-  $link = $type == 'Add' ? '/admin/add-game.php' : '/admin/edit-game.php';
+  $link = $type == 'Add' ? '/~ss013r/admin/add-game.php' : '/~ss013r/admin/edit-game.php';
 ?>
   <h2><?=$type?> Boardgame</h2>
   <form id="search-form" action="<?=$link?>" method="post">
